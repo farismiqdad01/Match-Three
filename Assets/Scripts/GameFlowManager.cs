@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameFlowManager : MonoBehaviour
@@ -45,5 +46,13 @@ public class GameFlowManager : MonoBehaviour
         isGameOver = true;
         ScoreManager.Instance.SetHighScore();
         GameOverUI.Show();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Level Selector");
+        }
     }
 }
